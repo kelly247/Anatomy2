@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Anatomy </title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomy Quiz Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+<div class="quiz-container">
+    <!-- SCREEN 1: LOGIN FORM -->
+    <div id="login-screen" class="screen">
+        <h1>Anatomy Practice Portal</h1>
+        <p class="subtitle">Please enter your details to begin the assessment.</p>
+        <form id="start-form" onsubmit="startQuiz(event)">
+            <div class="form-group">
+                <label for="username">Student Full Name:</label>
+                <input type="text" id="username" required placeholder="e.g., Jane Doe" autocomplete="off">
+            </div>
+            <button type="submit" class="action-btn">Begin Quiz</button>
+        </form>
+    </div>
+
+    <!-- SCREEN 2: ACTIVE QUIZ -->
+    <div id="quiz-screen" class="screen" style="display: none;">
+        <div class="user-badge">Student: <span id="display-name"></span></div>
+        <div class="tracker">
+            <span id="question-number">Question 1 of 54</span>
+            <span id="score-counter">Score: 0</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text" id="question-text">Loading...</div>
+            <div class="options-list" id="options-container"></div>
+        </div>
+
+        <!-- Written Note Box for Explanations -->
+        <div id="explanation-box" class="explanation-card" style="display: none;">
+            <h4>Anatomical Rationale:</h4>
+            <p id="explanation-text"></p>
+        </div>
+
+        <div class="action-container">
+            <button class="action-btn" id="next-button" style="display: none;" onclick="nextQuestion()">Next Question</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: RESULTS & DASHBOARD -->
+    <div id="results-screen" class="screen" style="display: none;">
+        <h2>Assessment Completed!</h2>
+        <div class="score-display" id="final-score">0 / 0</div>
+        
+        <div class="history-section">
+            <h3>Global Performance Dashboard</h3>
+            <p class="meta-info">Live updates from all students:</p>
+            <table class="dashboard-table">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Student Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Dynamic live entries loaded via Firebase -->
+                </tbody>
+            </table>
+        </div>
+        <button class="action-btn secondary" onclick="restartToLogin()">Register New Student</button>
+    </div>
+</div>
+
+<!-- Firebase SDK Modules -->
+<script type="module" src="script.js"></script>
+</body>
+</html>
+    <script type="module" src="./script.js"></script>
+
+  </body>
+  
+</html>
